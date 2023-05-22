@@ -2,6 +2,8 @@
 
 ### 1. Introduction
 
+<br/>
+
 Architecturally, the EST service is located between a Certification Authority (CA) and a client. It performs several functions traditionally allocated to the Registration Authority (RA) role in a PKI. 
 
 > 구조적으로, EST 서비스는 CA와 클라이언트 사이에 위치합니다. 기본적으로 PKI에서 RA의 역할에 할당된 여러 기능들을 수행합니다.
@@ -26,7 +28,9 @@ EST specifies how to transfer messages securely via HTTP over TLS (HTTPS) [RFC28
 
 </br>
 
-### 1.1 Terminology
+### 1.1. Terminology
+
+<br/>
 
 **EST CA** : For certificate issuing services, the EST CA is reached through the EST server. The CA could be logically "behind" the EST server or embedded within it.
 
@@ -40,7 +44,7 @@ EST specifies how to transfer messages securely via HTTP over TLS (HTTPS) [RFC28
 
 </br>
 
-**Explicit Trust Anchor** : Any TA that is explicitly configured on the client or server for use during EST TLS authentication. For example, a TA that is manually configured on the EST client or bootstrapped as described in Section 4.1.1.
+**Explicit Trust Anchor** : Any TA that is explicitly configured on the client or server for use during EST TLS authentication. For example, a TA that is manually configured on the EST client or bootstrapped as described in Section [4.1.1].
 
 > EST TLS 인증 중에 사용하기 위해 클라이언트 혹은 서버에 명시적으로 구성된 모든 TA를 의미합니다. 예를 들어, EST 클라이언트에서 수동으로 구성되거나, 4.1.1장에 설명된 대로 부트스트랩된 TA입니다.
 
@@ -52,6 +56,6 @@ EST specifies how to transfer messages securely via HTTP over TLS (HTTPS) [RFC28
 
 </br>
 
-Certificate-Less TLS : Certificate-less TLS cipher suites provide a way to perform mutual authentication in situations where neither the client nor server have certificates or are willing to use them. The credential used for authentication is a word, phrase, code, or key that is shared between the client and server. The credential must be uniquely shared between the client and server in order to provide authentication of an individual client to an individual server.
+**Certificate-Less TLS** : Certificate-less TLS cipher suites provide a way to perform mutual authentication in situations where neither the client nor server have certificates or are willing to use them. The credential used for authentication is a word, phrase, code, or key that is shared between the client and server. The credential must be uniquely shared between the client and server in order to provide authentication of an individual client to an individual server.
 
 > 인증서가 없는 TLS 암호화 스위트는 클라이언트와 서버 모두 인증서가 없거나, 인증서를 사용하지 않는 상황에서 상호 인증을 수행하는 방법을 제공합니다. 인증에 사용되는 자격 증명은 클아이언트와 서버 간에 공유되는 단어, 구문, 코드, 또는 키와 같은 것입니다. 자격 증명은 개별 클라이언트의 인증을 각 서버에 제공하기 위해 클라이언트와 서버 간에 고유하게 공유되어야 합니다.
