@@ -24,29 +24,29 @@ The general client/server interaction proceeds as follows :
 
 	1. The client initiates a TLS-secured HTTP session with an EST server.
 	
-	>> 클라이언트는 EST 서버와 TLS 보안 HTTP 세션을 초기화합니다.
+	- 클라이언트는 EST 서버와 TLS 보안 HTTP 세션을 초기화합니다.
 	
-	3. A specific EST service is requested based on a portion of 
+	2. A specific EST service is requested based on a portion of 
 	   the URI used for the session.
 	   
-	>> 해당 세션에 사용되는 URI의 일부를 기반으로 특정 EST 서비스가 요청됩니다.
+	- 해당 세션에 사용되는 URI의 일부를 기반으로 특정 EST 서비스가 요청됩니다.
 	
-	4. The client and server authenticate each other.
+	3. The client and server authenticate each other.
 	
-	>> 클라이언트와 서버가 서로를 인증합니다.
+	- 클라이언트와 서버가 서로를 인증합니다.
 	
-	6. The client verifies that the server is authorized to serve this client.
+	4. The client verifies that the server is authorized to serve this client.
 	
-	>> 클라이언트는 해당 서버가 클라이언트를 서비스할 권한이 있는지 확인합니다.
+	- 클라이언트는 해당 서버가 클라이언트를 서비스할 권한이 있는지 확인합니다.
 	
-	8. The server verifies that the client is authorized to make use of
+	5. The server verifies that the client is authorized to make use of
 	   this server and the request that the client has made.
 	
-	>> 서버는 해당 클라이언트가 서버 및 클라이언트 요청 사용 권한이 있는지 확인합니다.
+	- 서버는 해당 클라이언트가 서버 및 클라이언트 요청 사용 권한이 있는지 확인합니다.
 	
-	9. The server acts upon the client request.
+	6. The server acts upon the client request.
 	 
-	>> 서버는 클라이언트의 요청에 따라 동작합니다.
+	- 서버는 클라이언트의 요청에 따라 동작합니다.
 
 </br>
 
@@ -77,28 +77,28 @@ The EST client authenticates and verifies the authorization scope of the EST ser
 	  EST server and client to leverage existing TAs that might be known to the
 	  EST client.
 	
-	>> Implicit TA를 사용하여 EST 서버 인증서와 대응된 EST 서버의 HTTPS URI를 검증(일반적인
-	   HTTPS 교환과 유사)합니다. 이를 통해 EST 서버/클라이언트는 EST 클라이언트가 알 수 있는 기존
-	   TA를 활용할 수 있습니다.
+	- Implicit TA를 사용하여 EST 서버 인증서와 대응된 EST 서버의 HTTPS URI를 검증(일반적인
+	  HTTPS 교환과 유사)합니다. 이를 통해 EST 서버/클라이언트는 EST 클라이언트가 알 수 있는 기존
+	  TA를 활용할 수 있습니다.
 	
 	* The client can leverage a previously distributed trust anchor specific to 
 	  the EST server. This allows the EST client to use an existing, potentially 
 	  older, CA certificate to request a current CA certificate.
 	
-	>> 클라이언트는 EST 서버에 이전에 분산된 특정 TA를 활용할 수 있습니다. 이를 통해 EST 클라이언트는
-	   기존의, 잠재적으로 오래된 CA 인증서를 사용하여 현재 CA 인증서를 요청할 수 있습니다.
+	- 클라이언트는 EST 서버에 이전에 분산된 특정 TA를 활용할 수 있습니다. 이를 통해 EST 클라이언트는
+	  기존의, 잠재적으로 오래된 CA 인증서를 사용하여 현재 CA 인증서를 요청할 수 있습니다.
 	
 	* For bootstrapping, the EST client can rely upon manual authentication 
 	  performed by the end-user as detailed in Section [4.1.1]
 	
-	>> 부트스트랩의 경우, EST 클라이언트는 섹션 [4.1.1]에서 자세히 설명된 대로 최종 사용자에 의해 
-	   수행된 인증 매뉴얼에 의존할 수 있습니다.
+	- 부트스트랩의 경우, EST 클라이언트는 섹션 [4.1.1]에서 자세히 설명된 대로 최종 사용자에 의해 
+	  수행된 인증 매뉴얼에 의존할 수 있습니다.
 	
 	* The client can leverage the binding of a shared credential to a specific EST 
 	  server with a certificate-less TLS cipher suite.
 	
-	>> 클라이언트는 인증서가 없는 TLS 암호화 스위트를 통해 특정 EST 서버에 공유 자격 증명을 바인딩할 수
-	   있습니다.
+	- 클라이언트는 인증서가 없는 TLS 암호화 스위트를 통해 특정 EST 서버에 공유 자격 증명을 바인딩할 수
+	  있습니다.
 
 </br>
 
@@ -118,24 +118,24 @@ The EST server authenticates and authorizes the EST client as specified in Secti
 
 </br>
 
-	* TLS with a previously issued client certificate (e.g., an existing
-	  certificate issued by the EST CA)
+- **TLS with a previously issued client certificate**
+	(e.g., an existing certificate issued by the EST CA)
+
+	`* 이전에 발급된 클라이언트 인증서가 있는 TLS (예: EST CA에서 발급한 기존 인증서)`
+
+- **TLS with a previously installed certificate** 
+	(e.g., manufacturer-installed certificate or a certificate issued by some other party)
+
+	`* 이전에 설치된 인증서가 있는 TLS (예: 제조 업체가 설치한 인증서 또는 다른 당사자가 발행한 인증서)`
+
+- **Certificate-less TLS** 
+	(e.g., with a shared credential distributed out-of-band)
 	
-	>> 이전에 발급된 클라이언트 인증서가 있는 TLS (예: EST CA에서 발급한 기존 인증서)
-	
-	* TLS with a previously installed certificate (e.g., manufacturer-installed
-	  certificate or a certificate issued by some other party)
-	
-	>> 이전에 설치된 인증서가 있는 TLS (예: 제조 업체가 설치한 인증서 또는 다른 당사자가 발행한 인증서)
-	
-	* Certificate-less TLS (e.g., with a shared credential distributed 
-	  out-of-band)
-	  
-	>> 인증서가 없는 TLS (예: 대역외 분산된 공유 자격 증명을 포함)
-	
-	* HTTP-based with a username/password distributed out-of-band
-	
-	>> 대역외 분산된 username/password를 포함한 HTTP 기반
+	`* 인증서가 없는 TLS (예: 대역외 분산된 공유 자격 증명을 포함)`
+
+- **HTTP-based with a username/password distributed out-of-band**
+
+	`* 대역외 분산된 username/password를 포함한 HTTP 기반`
 
 </br>
 
